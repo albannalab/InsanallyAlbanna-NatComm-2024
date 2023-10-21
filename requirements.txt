@@ -11,3 +11,4 @@ statsmodels==0.14.0
 sympy==1.11.1
 tqdm==4.65.0
 xarray==2023.6.0
+ipykernel==6.25.0

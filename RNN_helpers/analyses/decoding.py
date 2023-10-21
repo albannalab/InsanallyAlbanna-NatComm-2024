@@ -1,7 +1,7 @@
 import sys
-sys.path.append('../baysian_neural_decoding/')
-import baysian_neural_decoding as bnd
-sys.path.remove('../baysian_neural_decoding/')
+# sys.path.append('../baysian_neural_decoding/')
+# import baysian_neural_decoding as bnd
+# sys.path.remove('../baysian_neural_decoding/')
 
 #sys.path.append('../../AL_data_analysis/')
 #import AL_data_analysis as alda
@@ -153,7 +153,7 @@ def animal_script(run, directory, neuron, r1, log_file, RESP_FUNCTION, PROB_FUNC
             trial_times  = numpy.array([round_to_bin(i, bin_size) for i in trial_times])
 
         # Creating spikes, inference times, and offsets on a case by case basis
-        if case is 'whole_trial':
+        if case == 'whole_trial':
             # for standard analysis
             s_offset = numpy.matrix(num_trials*[0]).T
             s_inf_times = numpy.matrix([*zip(num_trials*[0], num_trials*[numpy.max(trial_times)])])
@@ -161,7 +161,7 @@ def animal_script(run, directory, neuron, r1, log_file, RESP_FUNCTION, PROB_FUNC
             c_offset = numpy.matrix(trial_times[:]).T
             c_inf_times = numpy.matrix([*zip(num_trials*[-numpy.max(trial_times)], num_trials*[0])])
             c_trial_times = numpy.matrix([*zip(-trial_times[:], num_trials*[0])])
-        elif case is 'stim_choice_period':
+        elif case == 'stim_choice_period':
             # for standard analysis
             s_offset = numpy.matrix(num_trials*[0]).T
             s_inf_times = numpy.matrix([*zip(num_trials*[0], num_trials*[numpy.max(trial_times)])])
@@ -169,7 +169,7 @@ def animal_script(run, directory, neuron, r1, log_file, RESP_FUNCTION, PROB_FUNC
             c_offset = numpy.matrix(trial_times[:]).T
             c_inf_times = numpy.matrix([*zip(num_trials*[-numpy.max(trial_times)], num_trials*[0])])
             c_trial_times = numpy.matrix([*zip(num_trials*[-.5], num_trials*[0])])
-        elif case is 'whole_trial_pre':
+        elif case == 'whole_trial_pre':
             # for standard analysis
             window = FLAGS['window']
             s_offset = numpy.matrix(num_trials*[0]).T
@@ -178,7 +178,7 @@ def animal_script(run, directory, neuron, r1, log_file, RESP_FUNCTION, PROB_FUNC
             c_offset = numpy.matrix(trial_times[:]).T
             c_inf_times = numpy.matrix([*zip(num_trials*[-numpy.max(trial_times) - window], num_trials*[window])])
             c_trial_times = numpy.matrix([*zip(-trial_times[:], num_trials*[0])])
-        elif case is 'first_second':
+        elif case == 'first_second':
             # for standard analysis
             trial_length = FLAGS['trial_length']
             s_offset = numpy.matrix(num_trials*[0]).T
@@ -187,7 +187,7 @@ def animal_script(run, directory, neuron, r1, log_file, RESP_FUNCTION, PROB_FUNC
             c_offset = numpy.matrix(num_trials*[0]).T
             c_inf_times = numpy.matrix([*zip(num_trials*[0], num_trials*[trial_length])])
             c_trial_times = numpy.matrix([*zip(num_trials*[0], num_trials*[trial_length])])
-        elif case is 'last_second':
+        elif case == 'last_second':
             # for standard analysis
             trial_length = FLAGS['trial_length']
             s_offset = numpy.matrix(trial_times[:]).T
@@ -196,7 +196,7 @@ def animal_script(run, directory, neuron, r1, log_file, RESP_FUNCTION, PROB_FUNC
             c_offset = numpy.matrix(trial_times[:]).T
             c_inf_times = numpy.matrix([*zip(num_trials*[- trial_length], num_trials*[0])])
             c_trial_times = numpy.matrix([*zip(num_trials*[- trial_length], num_trials*[0])])
-        elif case is 'first_second_pre':
+        elif case == 'first_second_pre':
             # for standard analysis
             window = FLAGS['window']
             trial_length = FLAGS['trial_length']
@@ -206,7 +206,7 @@ def animal_script(run, directory, neuron, r1, log_file, RESP_FUNCTION, PROB_FUNC
             c_offset = numpy.matrix(num_trials*[0]).T
             c_inf_times = numpy.matrix([*zip(num_trials*[- window], num_trials*[trial_length + window])])
             c_trial_times = numpy.matrix([*zip(num_trials*[0], num_trials*[trial_length])])
-        elif case is 'last_second_pre':
+        elif case == 'last_second_pre':
             # for standard analysis
             window = FLAGS['window']
             trial_length = FLAGS['trial_length']
@@ -216,43 +216,43 @@ def animal_script(run, directory, neuron, r1, log_file, RESP_FUNCTION, PROB_FUNC
             c_offset = numpy.matrix(trial_times[:]).T
             c_inf_times = numpy.matrix([*zip(num_trials*[-trial_length - window], num_trials*[window])])
             c_trial_times = numpy.matrix([*zip(num_trials*[-trial_length], num_trials*[0])])
-#         elif case is 'whole_trial_avg':
+#         elif case == 'whole_trial_avg':
 #             # for control using only prestimulus
 #             start_times = num_trials*[0]
 #             end_times = num_trials*[avg_np]
 #             s_offset = 0
 #             a_offset = 0
-#         elif case is 'complete_trial':
+#         elif case == 'complete_trial':
 #             # for control using only prestimulus
 #             start_times = num_trials*[0]
 #             end_times = num_trials*[trial_duration]
 #             s_offset = 0
 #             a_offset = 0
-#         elif case is 'prestimulus':
+#         elif case == 'prestimulus':
 #             # for control using only prestimulus
 #             start_times = num_trials*[-numpy.max(trial_times)]
 #             end_times = num_trials*[0]
 #             s_offset = 0
 #             a_offset = 0
-#         elif case is 'stimulus':
+#         elif case == 'stimulus':
 #             # for control using stim only
 #             start_times = num_trials*[0]
 #             end_times = num_trials*[.1]
 #             s_offset = 0
 #             a_offset = 0
-#         elif case is 'no_stimulus':
+#         elif case == 'no_stimulus':
 #             # for control using w/o stim only
 #             start_times = num_trials*[.1]
 #             end_times = num_trials*[numpy.max(trial_times)]
 #             s_offset = 0
 #             a_offset = trial_times[:] - .1
-#         elif case is 'first_second':
+#         elif case == 'first_second':
 #             # Using first second
 #             start_times = num_trials*[0]
 #             end_times = num_trials*[1]
 #             s_offset = 0
 #             a_offset = 0
-#         elif case is 'last_second':
+#         elif case == 'last_second':
 #             # Using last second
 #             start_times = num_trials*[0]
 #             end_times = num_trials*[1]
