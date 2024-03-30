@@ -29,10 +29,10 @@ The project contains the `Project.toml` and `Manifest.toml` required to create t
 
 
 1. [Install Juila](https://julialang.org/) 
-2. Go to the directory where this repo is housed (e.g. `.../InsanallyAlbanna2023`) and enter the shell command to create the environment and install the necesssary packages:
+2. Go to the directory where this repo is housed (e.g. `.../InsanallyAlbanna2024`) and enter the shell command to create the environment and install the necesssary packages:
 
 ```
-~/InsanallyAlbanna2023> julia setup.jl
+~/InsanallyAlbanna2024> julia setup.jl
 ```  
 
 Setup should only take a few minutes
@@ -45,11 +45,11 @@ To install the environment required for the Jupyter notebooks containing most an
 2. Activate your virtual environment
 3. From the shell in the repo driectory: 
 ```
-~/InsanallyAlbanna2023> pip install -r requirements.txt
+~/InsanallyAlbanna2024> pip install -r requirements.txt
 ``` 
 4. To create a ipython kernel for this environment in jupyter run:
 ```
-~/InsanallyAlbanna2023> python -m ipykernel install --user --name=IA23
+~/InsanallyAlbanna2024> python -m ipykernel install --user --name=IA23
 ```
 5. Select `IA23` as your kernel when running one of the Jupyter notebook editors above.
 
@@ -58,7 +58,7 @@ To install the environment required for the Jupyter notebooks containing most an
 To run an example simulation which will save outputs in the `example_simulations` directory enter the shell command
 
 ```
-~/InsanallyAlbanna2023> julia example_simulation.jl
+~/InsanallyAlbanna2024> julia example_simulation.jl
 ```
 
 The script is short and contains the necessary commands to modify the simulation paramaters. On a 4.2 GHz Quad-Core Intel Core i7 running macOS the simulation takes ~30 minutes to complete. 
