@@ -1,5 +1,7 @@
 # Companion code for Insanally, Albanna, et al., Nat. Comm., 2024. "Contributions of cortical neuron firing patterns, synaptic connectivity, and plasticity to task performance"
 
+[![DOI](https://zenodo.org/badge/485871604.svg)](https://zenodo.org/doi/10.5281/zenodo.11221988)
+
 This is the code acccompanying "Contributions and synaptic basis of diverse cortical neuron responses to task performance" [currently available on the bioRxiv](https://www.biorxiv.org/content/10.1101/2022.05.04.490676v1)
 
 This repo contains two seperate codebases:
