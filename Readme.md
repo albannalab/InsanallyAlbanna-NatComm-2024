@@ -51,7 +51,7 @@ To install the environment required for the Jupyter notebooks containing most an
 ``` 
 4. To create a ipython kernel for this environment in jupyter run:
 ```
-~/InsanallyAlbanna-NatComm-2024> python -m ipykernel install --user --name=IA23
+~/InsanallyAlbanna-NatComm-2024> python -m ipykernel install --user --name=IA24
 ```
 5. Select `IA23` as your kernel when running one of the Jupyter notebook editors above.
 
